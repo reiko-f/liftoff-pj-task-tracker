@@ -1,0 +1,400 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+  background-color: azure;
+  color: gray;
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  height: 100px;
+  display: block;
+  font-size: 1.5rem;
+}
+
+.tab {
+  background-color: lightgray;
+  color: dakgray;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: arrow;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tab:hover {
+  background-color: LightCyan;
+}
+
+.tab-content {
+  color: gray;
+  display: none;
+  padding: 100px 20px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+#Home {
+  background-color: DarkTurquoise;
+}
+#Plan {
+  background-color: Turquoise;
+}
+#Achievement {
+  background-color: Aquamarine;
+}
+#Reward {
+  background-color: PaleTurquoise;
+}
+
+
+.login-signup form {
+  display: none;
+}
+
+.login-signup form:target {
+  display: block;
+}
+
+
+#login-btn {
+  color: gray;
+  background-color: deepskyblue;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#login-btn :hover {
+  color:dimgray;
+  background-color: lightskyblue;
+}
+
+#signup-btn {
+  color: gray;
+  background-color: deepskyblue;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#signup-btn :hover {
+  color:dimgray;
+  background-color: lightskyblue;
+}
+
+.start-btn {
+  color: gray;
+  background-color: skyblue;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-btn :hover {
+  color:dimgray;
+  background-color: lightskyblue;
+}
+
+.end-btn {
+  color: gray;
+  background-color: turquoise;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.end-btn :hover {
+  color:dimgray;
+  background-color: lightskyblue;
+}
+
+.target-btn {
+  color: gray;
+  background-color: lightgoldenrodyellow;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.target-btn :hover {
+  color:dimgray;
+  background-color: yellow;
+}
+
+#coupon-btn {
+  color: gray;
+  background-color: deepskyblue;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#coupon-btn :hover {
+  color:dimgray;
+  background-color: lightskyblue;
+}
+
+#couponNums-btn {
+  color: gray;
+  background-color: lightblue;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#couponNums-btn :hover {
+  color:dimgray;
+  background-color: lightskyblue;
+}
+
+#makeCoupon-btn {
+  color: gray;
+  background-color: lightgreen;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#makeCoupon-btn :hover {
+  color:dimgray;
+  background-color: lightyellow;
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background-color: #AFEEEE;
+  font-size: 20px;
+  transition: 0.2s;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul li:nth-child(odd) {
+  background-color: powderblue;
+}
+
+ul li:hover {
+  background-color: aliceblue;
+}
+
+ul li.checked {
+  background-color: snow;
+  color: deepskyblue;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  content: '';
+  /* content: '✓'; */
+  position: absolute;
+  border-color: aqua;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 16px;
+  width: 6px;
+} 
+
+a {
+  color: lightseagreen;
+}
+
+
+.add-btn {
+  color: gray;
+  background-color: pink;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn :hover {
+  color:dimgray;
+  background-color: hotpink;
+}
+
+.clear-btn {
+  color: gray;
+  background-color: coral;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-btn :hover {
+  color:dimgray;
+  background-color: salmon;
+}
+
+.previous-btn {
+  color: gray;
+  background-color: pink;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.previous-btn :hover {
+  color:dimgray;
+  background-color: hotpink;
+}
+
+.next-btn {
+  color: gray;
+  background-color: pink;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.next-btn :hover {
+  color:dimgray;
+  background-color: hotpink;
+}
+
+.tasks-container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;  
+}
+
+.task-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.task {
+  background-color: snow;
+  color: slategray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.task-item {
+  flex: 1;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.delete-btn:hover { 
+  background-color: skyblue;
+  color: gray;
+}
+
+#point-counter {
+  text-align: center;
+  width: 10%;  
+  height: 50px;
+  background-color: snow;
+  /* transition: 0.3s; */
+}
+
+.point-btn {
+  color: dimgray;
+  background-color: turquoise;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.point-btn :hover {
+  color:gray;
+  background-color: ghostwhite;
+}
+
+
+#bar-container {
+  /* position: relative; */
+  width: 100%;  
+  /* height: 30px; */
+  background-color: snow;
+  /* transition: 0.3s; */
+}
+
+#bar {
+  /* position: absolute; */
+  width: 10%;  
+  height: 30px;
+  background-color: lemonchiffon;      
+  text-align: center;
+  line-height: 30px;
+  color: gray;
+  /* transition: 0.1s; */
+}
+
+#progress {
+  text-align: center;
+  line-height: 30px;
+  color: gray;
+  line-height: 28px;
+}
+
+.bar-btn {
+  color: dimgray;
+  background-color: cyan;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bar-btn :hover {
+  color:gray;
+  background-color: ghostwhite;
+}
+
+.rate-btn {
+  color: gray;
+  background-color: turquoise;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rate-btn :hover {
+  color:dimgray;
+  background-color: lightpink;
+}
+
+#coupon-btn {
+  color: gray;
+  background-color: coral;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.coupon-btn :hover {
+  color:dimgray;
+  background-color: lightpink;
+}
+
+
+
+.coupon {
+  border: 5px dotted;
+  width: 70%;
+  border-radius: 15px;
+  /* margin: 0 auto; */
+  max-width: 500px;
+}
+
+.coupon-content {
+  padding: 2px 16px;
+  background-color: white;
+}
+
+
+
+
+

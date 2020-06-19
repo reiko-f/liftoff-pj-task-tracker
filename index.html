@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lan="en">  
+  <head>
+    <meta charset utf-8>
+    <title>Learning Tracker</title>
+    <link rel="stylesheet" type="text/css" href="pj-task-tracker.css">   
+  </head>  
+  <body>    
+    <header>
+      <h1>Daily Task Tracker</h1>
+    </header>
+
+    <!-- 1 Home -->
+    <!-- navigation -->
+
+    <!-- <div class="topnav">       -->
+
+    <button class="tab" onclick="openTab('home', this, 'darkTurquoise')" id="defaultOpen">Home</button>
+    <button class="tab" onclick="openTab('task', this, 'turquoise')">Task</button>
+    <button class="tab" onclick="openTab('achievement', this, 'aquamarine')">Achievement</button>
+    <button class="tab" onclick="openTab('reward', this, 'paleTurquoise')">Reward</button>     
+    
+    <div id="home" class="tab-content">
+      <!-- <h1 id="home-login">Home</h1> -->
+
+      <h1 id="home-login">Get Started</h1>  
+        <a href="#to-login">to Log-In</a>
+        <a href="#to-signup">to Sign-Up</a>
+      <!-- Login Form-->
+      <div class="login-signup">        
+
+        <br>
+        <form id="to-login">
+            <h2 id="home-title">Log In</h2>
+            <br>
+            <!-- <label for="username">Username: </label> -->
+            <input type="text" placeholder="username" name="username" id="username">
+            <br>
+            <br>
+          <!-- <label for="password">Password: </label> -->
+            <input type="text" placeholder="password" name="password" id="password">
+            <br>
+            <br>
+            <br>
+            <input type="button" value="login" onclick="loginForm(form)" id="login-btn">
+            <!-- <button type="submit" class="login-btn" id="login-btn">Log In</button>     -->
+            
+            <p class="link-change">
+              <a href="#to-signup" class="goto-signup">Not sign-up yet?</a></p>
+        </form>
+      <!-- </div> -->
+      <br>
+      <!-- Signup Form-->
+      <!-- <div class="login-signup"> -->
+        <form id="to-signup">
+            <h2 id="signup-title">Sign Up</h2>
+            <br>
+            <h3 id="signup-direction">Please fill in the form below:</h3>
+            <br>
+            <label for="username">Username: </label>
+            <input type="text" placeholder="username" name="username" id="username">
+            <p id="username-placed"></p>
+            <br>
+            <br>
+            <label for="password">Password: </label>
+            <input type="text" placeholder="password" name="password" id="password">
+            <p id="password-placed"></p>
+            <br>
+            <label for="confirm-pw">Confirm Password: </label>
+            <input type="text" placeholder="confirm password" name="confirm-pw" id="confirm-pw">
+            <br>
+            <label>
+              <input type="checkbox" checked="checked" name="remember" id="remember-me">Remember Me
+            </label>
+            <br>
+            <br>
+            <label for="start-date">Choose which date to start</label>
+            <input type="date" placeholder="when to start" id="start-date" min="06-06-2020" max="06-30-2021">
+            <button onclick="start()" class="start-btn">Start Date</button>
+            <p hidden id="user-start"></p>
+            <br>
+            <br>
+            <label for="end-date">Choose which date to end</label>
+            <input type="date" placeholder="when to end" id="end-date" min="06-06-2020" max="06-30-2021">
+            <button onclick="end()" class="end-btn">End Date</button>
+            <p hidden id="user-end"></p>
+            <br>
+            <br>
+            <label for="target">Target Days</label>
+            <input type="text" placeholder="calculate" id=cal-days>
+            <button onclick="calculateDays()" class="target-btn">Calculate</button>
+            <div id="target-days"></div>            
+            <br>
+            <br>
+            
+            <label for="coupon">Set up Reward Coupons?</label>
+            <select id="coupon">
+              <option id="set-coupon">select</option>             
+              <option value="yes">Yes</option>
+              <option value="no">No</option>              
+            </select>          
+            <button onclick="yesCoupon()" id="coupon-btn">Yes/No</button>
+            <div id=coupon-set>            
+            </div>
+            <br>
+            <div id="couponContent-set"></div>
+            <br>
+            <br>
+            <input type="button" value="signup" onclick="signUpForm(form)" id="signup-btn">
+            
+            <p class="link-change">
+              <a href="#to-login" class="goto-login">Already have an account?</a></p>              
+          </form>
+        </div>
+        <!-- </div>                -->
+      <br>      
+      <!-- <div id="point-storage">
+        <h2>Point Bank</h2>
+        <br>
+          <h3>Your Point as of</h3>
+          <p class="asof-today"></p>
+          <div id="point-container"></div>        
+          <br>
+      </div> -->
+    </div>
+
+    <!-- 2 Plan -->
+
+    <div id="task" class="tab-content">      
+      <h1 id="tasks">Task</h1>          
+      <br>      
+      <br>
+      <div class="wrapper">
+
+        <!-- Calendar -->
+        <div class="calendar-container">          
+          <h2 id="monthAndYear"></h2>
+          <!-- <h2 id="month"></h2>               -->
+          <div class="button-container">
+            <button id="previous" onclick="previous()" class="previous-btn">previous</button>  
+            <button id="next" onclick="next()" class="next-btn">next</button>
+          </div>
+          <!-- <h2 id="year"></h2> -->
+          <br>
+          <table class="calendar-table" id="calendar">
+
+            <thead>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>            
+              </tr>
+            </thead>
+
+            <tbody id="calendar-body">
+              
+            </tbody>             
+          </table>  
+        </div> 
+                       
+        <br>
+        <br>
+        <br>
+        <!-- Task List -->
+        
+        <form id="tasks" class="task-add">
+          <h3>Add Tasks</h3>          
+          <input type="text" id="task-input" placeholder="task" class="task-input"></input>
+          <span type="submit" id="add" onclick="addTask()" class="add-btn">Add</span>
+          <br>          
+        </form>                      
+        <br>
+        <br>
+        <div class="tasks-container" id="tasks-container">
+          <ul class="task-list" id="task-list">   
+          </ul>
+        </div>  
+        <br>
+        <br>
+        <!-- <button type="submit" id="clear" class="clear-btn">Clear All</button> -->
+      </div> 
+    </div>
+
+    <!-- 3 Achievement -->
+    <div id="achievement" class="tab-content">      
+    <h1 id="achievements">Achievement</h1>
+    <br>
+    <br>
+      <div id="assessment">
+      <h2>Self Assessment</h2>        
+      <br>          
+        <h3>How do you rate your job today?</h3> 
+        <p class="today"></p>          
+        <br>      
+        <form id="option-form">
+        <select id="option-select">
+          <option id="rate-option">Choose a number</option>
+          <option value="5">5</option>
+          <option value="3">3</option>
+          <option value="1">1</option>
+        </select>
+        </form>
+        
+        <button type="submit" onclick="todaysRate()" value="rate" class="rate-btn">Rate</button>
+        <br>
+        <br>
+        <div id="rate"></div>
+        <br>
+        <label for="todays-rate">Today's Rate: </label>
+        <div id="todays-rate"></div>       
+      </div>
+      <br>
+      <br>
+      <div id="point-container">
+      <h2>Point Bank</h2>
+      <br>
+        <h3>Your Point as of</h3>
+        <p id="asof-today"></p>        
+        <br>
+        <div id="point-board">Total Points: </div>
+        <div id="point-counter">0</div>        
+        <button onclick="pointUpdate()" class="point-btn">Click</button>      
+        <br>
+      </div>
+      <br>
+      <br>      
+      <div id="bar-container">
+      <h2>Your Progress</h2>            
+        <div id="bar">
+          <div id="progress"></div>          
+        </div>
+        <button onclick="progressUpdate()" class="bar-btn">Click</button>              
+      </div>        
+      <br>
+      <br>
+        <!-- <progress min="0" max="100" value="0" id="progress"></progress>
+        <br>
+        <output for="progress" id="total-point">0</output>
+        <button onclick="progress()" id="progress-btn">progress</button> -->
+           
+    </div>  
+        
+    <!-- 4 Reward -->
+    <div id="reward" class="tab-content">      
+      <h1 id="rewards">Reward</h1>
+      <br>
+      <div id="coupon1"></div>
+      <div id="coupon2"></div>
+      <div id="coupon3"></div>
+      <div id="not-yet"></div>
+      <br>
+      <br>
+      <br>
+      <button onclick="getCoupon()" id="coupon-btn">Coupons</button>     
+      
+    </div>
+    <br>
+    <br>
+
+    <script src="pj-task-tracker.js" type='text/javascript'></script>
+
+    <script defer src="all.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-storage.js"></script> -->
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyD6XLznpcm8cQdKo0q9B0VOx-3G3S1Uiyk",
+        authDomain: "daily-task-tracker-70ce0.firebaseapp.com",
+        databaseURL: "https://daily-task-tracker-70ce0.firebaseio.com",
+        projectId: "daily-task-tracker-70ce0",
+        storageBucket: "daily-task-tracker-70ce0.appspot.com",
+        messagingSenderId: "1058038651510",
+        appId: "1:1058038651510:web:74077556e98fadcc4a9d57",
+        measurementId: "G-747JQLG0BY"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+  </body>
+</head>
+</html>
